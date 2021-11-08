@@ -7,7 +7,7 @@ import android.widget.Button
 import android.widget.Toast
 
 import android.R.attr.data
-import android.graphics.BitmapFactory
+import android.graphics.*
 import android.widget.CompoundButton
 import android.widget.ToggleButton
 
@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         val bitmapRed = BitmapFactory.decodeResource(resources, R.drawable.red)
         val bitmapBlue = BitmapFactory.decodeResource(resources, R.drawable.blue)
         val bitmapGreen = BitmapFactory.decodeResource(resources, R.drawable.green)
+        val filterBitmap = Bitmap.createBitmap(bitmap.width,bitmap.height,Bitmap.Config.ARGB_8888)
 
 
 
@@ -37,24 +38,43 @@ class MainActivity : AppCompatActivity() {
         red.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
                 //odznacza dwa poostale
-                    blue.isChe
-                Toast.makeText(this,"red On",Toast.LENGTH_LONG).show()
+                    blue.isChecked = false
+                    green.isChecked = false
+
+
+
+                //magia
+                val paint = Paint()
+                paint.alpha = 100
+                val canvas = Canvas(filterBitmap)
+                canvas.drawARGB(0,0,0,0)
+                canvas.drawBitmap(bitmapRed,null,RectF(0f,0f,bitmap.width.toFloat(),bitmap.height.toFloat()),paint)
+                canvas.drawBitmap(bitmap,0f,0f,paint)
+
+
+
             } else {
 
             }
         })
         blue.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
-                Toast.makeText(this,"blue On",Toast.LENGTH_LONG).show()
+                //odznacza dwa poostale
+                red.isChecked = false
+                green.isChecked = false
+
             } else {
-                Toast.makeText(this,"blue Off",Toast.LENGTH_LONG).show()
+
             }
         })
         green.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
-                Toast.makeText(this,"green On",Toast.LENGTH_LONG).show()
+                //odznacza dwa poostale
+                blue.isChecked = false
+                red.isChecked = false
+
             } else {
-                Toast.makeText(this,"Tgreen Off",Toast.LENGTH_LONG).show()
+
             }
         })
     }
