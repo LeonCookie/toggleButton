@@ -6,13 +6,51 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <ImageView
+        android:id="@+id/imageCat"
+        android:layout_width="308dp"
+        android:layout_height="255dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.217"
+        app:srcCompat="@drawable/cat" />
+
+    <ToggleButton
+        android:id="@+id/toggleButtonRed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginBottom="72dp"
+        android:text="red"
+        android:textOff="REDOFF"
+        android:textOn="REDON"
+        app:layout_constraintBottom_toTopOf="@+id/toggleButtonBlue"
+        app:layout_constraintEnd_toEndOf="@+id/toggleButtonBlue"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/toggleButtonBlue"
+        tools:text="red" />
 
+    <ToggleButton
+        android:id="@+id/toggleButtonBlue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="76dp"
+        android:text="ToggleButton"
+        android:textOff="BlueOFF"
+        android:textOn="BlueON"
+        app:layout_constraintBottom_toTopOf="@+id/toggleButtonGreen"
+        app:layout_constraintEnd_toEndOf="@+id/toggleButtonGreen" />
+
+    <ToggleButton
+        android:id="@+id/toggleButtonGreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:text="ToggleButton"
+        android:textOff="GREENOFF"
+        android:textOn="GREENON"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
