@@ -30,7 +30,9 @@ class MainActivity : AppCompatActivity() {
         val bitmapGreen = BitmapFactory.decodeResource(resources, R.drawable.green)
         val filterBitmap = Bitmap.createBitmap(bitmap.width,bitmap.height,Bitmap.Config.ARGB_8888)
 
-
+        red.setBackgroundColor(Color.GRAY)
+        blue.setBackgroundColor(Color.GRAY)
+        green.setBackgroundColor(Color.GRAY)
 
 
 
@@ -41,6 +43,8 @@ class MainActivity : AppCompatActivity() {
                     green.isChecked = false
 
 
+                //kolor
+                red.setBackgroundColor(Color.RED)
 
                 //magia
                 val paint = Paint()
@@ -55,7 +59,9 @@ class MainActivity : AppCompatActivity() {
 
 
             } else {
-
+                //kolor
+                red.setBackgroundColor(Color.GRAY)
+                cat.setImageBitmap(bitmap)
             }
         })
         blue.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
@@ -64,6 +70,9 @@ class MainActivity : AppCompatActivity() {
                 red.isChecked = false
                 green.isChecked = false
 
+
+                //kolor
+                blue.setBackgroundColor(Color.BLUE)
 
                 //magia
                 val paint = Paint()
@@ -74,7 +83,9 @@ class MainActivity : AppCompatActivity() {
                 canvas.drawBitmap(bitmap,0f,0f,paint)
                 cat.setImageBitmap(filterBitmap)
             } else {
-
+                //kolor
+                blue.setBackgroundColor(Color.GRAY)
+                cat.setImageBitmap(bitmap)
             }
         })
         green.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
@@ -83,6 +94,9 @@ class MainActivity : AppCompatActivity() {
                 blue.isChecked = false
                 red.isChecked = false
 
+
+                //kolor
+                green.setBackgroundColor(Color.GREEN)
 
 
                 //magia
@@ -94,6 +108,10 @@ class MainActivity : AppCompatActivity() {
                 canvas.drawBitmap(bitmap,0f,0f,paint)
                 cat.setImageBitmap(filterBitmap)
             } else {
+                //kolor
+                //kolor
+                green.setBackgroundColor(Color.GRAY)
+                cat.setImageBitmap(bitmap)
 
             }
         })
