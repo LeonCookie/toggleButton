@@ -7,8 +7,8 @@ import android.widget.Button
 import android.widget.Toast
 
 import android.R.attr.data
-
-
+import android.widget.CompoundButton
+import android.widget.ToggleButton
 
 
 class MainActivity : AppCompatActivity() {
@@ -20,17 +20,16 @@ class MainActivity : AppCompatActivity() {
         lateinit var blue: Button
         lateinit var green: Button
 
-        red=findViewById<Button>(R.id.toggleButtonRed)
-        blue=findViewById<Button>(R.id.toggleButtonBlue)
-        green=findViewById<Button>(R.id.toggleButtonGreen)
+        red=findViewById<ToggleButton>(R.id.toggleButtonRed)
+        blue=findViewById<ToggleButton>(R.id.toggleButtonBlue)
+        green=findViewById<ToggleButton>(R.id.toggleButtonGreen)
 
-        red.setOnClickListener {
-            if(red.text.toString() == "ON"){
-                Toast.makeText(this@MainActivity, "Red ON", Toast.LENGTH_SHORT).show()
+            red.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                Toast.makeText(this,"Turned On",Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(this,"Turned Off",Toast.LENGTH_LONG).show()
             }
-            else{
-                Toast.makeText(this@MainActivity, "Red OFF", Toast.LENGTH_SHORT).show()
-            }
-        }
+        })
     }
 }
