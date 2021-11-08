@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.Toast
 
 import android.R.attr.data
+import android.graphics.BitmapFactory
 import android.widget.CompoundButton
 import android.widget.ToggleButton
 
@@ -24,11 +25,36 @@ class MainActivity : AppCompatActivity() {
         blue=findViewById<ToggleButton>(R.id.toggleButtonBlue)
         green=findViewById<ToggleButton>(R.id.toggleButtonGreen)
 
-            red.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
+        val bitmap = BitmapFactory.decodeResource(resources, R.drawable.cat)
+        val bitmapRed = BitmapFactory.decodeResource(resources, R.drawable.red)
+        val bitmapBlue = BitmapFactory.decodeResource(resources, R.drawable.blue)
+        val bitmapGreen = BitmapFactory.decodeResource(resources, R.drawable.green)
+
+
+
+
+
+        red.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
-                Toast.makeText(this,"Turned On",Toast.LENGTH_LONG).show()
+                //odznacza dwa poostale
+                    blue.isChe
+                Toast.makeText(this,"red On",Toast.LENGTH_LONG).show()
             } else {
-                Toast.makeText(this,"Turned Off",Toast.LENGTH_LONG).show()
+
+            }
+        })
+        blue.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                Toast.makeText(this,"blue On",Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(this,"blue Off",Toast.LENGTH_LONG).show()
+            }
+        })
+        green.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                Toast.makeText(this,"green On",Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(this,"Tgreen Off",Toast.LENGTH_LONG).show()
             }
         })
     }
